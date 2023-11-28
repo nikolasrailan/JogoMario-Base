@@ -3,6 +3,7 @@ const cano = document.querySelector('.cano');
 const nuvem = document.querySelector('.nuvem');
 const fimDeJogo = document.querySelector('.fim-de-jogo');
 const botaoReiniciar = document.querySelector('.reiniciar');
+const pontuacaoH2 = document.querySelector('h1');
 
 let pontuacao = 0;
 
@@ -21,6 +22,8 @@ function fazerMarioPular() {
 
 function atualizarPontuacao() {
   console.log('Pontuação:' + pontuacao);
+  pontuacaoH2.innerText = "Pontuação: " +pontuacao;
+
 }
 
 function verificarColisoes() {
@@ -48,6 +51,7 @@ function verificarColisoes() {
     
     fimDeJogo.style.visibility = 'visible';
   }
+  
 }
 
 let loopJogo = setInterval(verificarColisoes, 10);
@@ -58,21 +62,8 @@ function pararJogo(){
 }
 
 function reiniciarJogo() {
-  pontuacao = 0;
-  fimDeJogo.style.visibility = 'hidden';
-  mario.src = 'assets/imgs/mario.gif';
-  mario.style.width = '130px';
-
-
-  cano.style.animation = 'animacoes-cano 2s infinite linear';
-  cano.style.right = '0%';
-
-  nuvem.style.animation = 'nuvem 20s infinite linear';
-  loopJogo = setInterval(verificarColisoes, 10);
+  location.reload();
+  
 }
 
-// Adiciona o evento de clique ao botão de reiniciar
-botaoReiniciar.addEventListener('click', reiniciarJogo);
-
-// Inicia o jogo
-reiniciarJogo();
+document.addEventListener("click", reiniciarJogo);
