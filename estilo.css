@@ -73,7 +73,7 @@
 /* Animação para o movimento do cano */
 @keyframes animacoes-cano {
   from {
-    right: -80px;
+    right: 0%;
   }
 
   to {
